@@ -43,7 +43,7 @@ jobs:
       RESOURCE_GROUP: "sandbox"
       CLUSTER_NAME: "aks-sandbox-1"
       CHART_PATH: "helm/"
-      CHART_OVERRIDE_PATH: "/helm"
+      CHART_OVERRIDE_PATH: "helm/"
   
     needs: [build-and-publish-image]
     runs-on: ubuntu-latest
