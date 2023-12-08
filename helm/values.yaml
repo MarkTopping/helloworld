@@ -1,0 +1,10 @@
+fullnameOverride: hello-world
+
+image:
+  repository: azureimagerepo.azurecr.io/helloworldapi
+  tag: latest
+
+replicaCount: 2
+
+envVars:
+  ASPNETCORE_ENVIRONMENT: dev

@@ -1,6 +1,6 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-jammy AS base
 WORKDIR /app
 EXPOSE 80
 
@@ -26,4 +26,13 @@ RUN dotnet publish "HelloWorld.API.csproj" -c Release -o /app/publish /p:UseAppH
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+EXPOSE 5000
+ENV ASPNETCORE_URLS=http://+:5000
+
+RUN groupadd --system --gid 2001 appgroup && adduser -u 1001 --gid 2001 --disabled-password --gecos "" appuser && chown -R appuser /app
+USER appuser
+
+RUN 
+
 ENTRYPOINT ["dotnet", "HelloWorld.API.dll"]

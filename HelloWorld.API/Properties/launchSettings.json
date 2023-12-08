@@ -5,7 +5,9 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "dev"
+        "ASPNETCORE_ENVIRONMENT": "dev",
+        "IMAGE_TAG": "missing",
+        "HOSTNAME": "localhost"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5137"
@@ -15,7 +17,9 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "dev"
+        "ASPNETCORE_ENVIRONMENT": "dev",
+        "IMAGE_TAG": "missing",
+        "HOSTNAME": "localhost"
       }
     },
     "Docker": {
@@ -24,7 +28,9 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "publishAllPorts": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "dev"
+        "ASPNETCORE_ENVIRONMENT": "dev",
+        "IMAGE_TAG": "missing",
+        "HOSTNAME": "localhost"
       }
     }
   },

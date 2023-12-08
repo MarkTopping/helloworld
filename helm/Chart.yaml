@@ -1,0 +1,7 @@
+apiVersion: v2
+name: hello-world
+description: chart for deploying sample web api
+version: 0.0.1
+appVersion: ""
+maintainers:
+  - name: Mark
