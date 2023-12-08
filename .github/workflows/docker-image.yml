@@ -42,7 +42,7 @@ jobs:
       CONTAINER_NAME: "your-container-name"
       RESOURCE_GROUP: "sandbox"
       CLUSTER_NAME: "aks-sandbox-1"
-      CHART_PATH: "helm/Chart.yaml"
+      CHART_PATH: "./helm/"
       CHART_OVERRIDE_PATH: "helm/Chart.yaml"
   
     needs: [build-and-publish-image]
@@ -79,7 +79,7 @@ jobs:
         with:
           renderEngine: "helm"
           helmChart: ${{ env.CHART_PATH }}
-          overrideFiles: ${{ env.CHART_OVERRIDE_PATH }}
+          # overrideFiles: ${{ env.CHART_OVERRIDE_PATH }}
           overrides: |
             replicaCount:3
           helm-version: "latest"
