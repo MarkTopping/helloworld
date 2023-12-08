@@ -16,3 +16,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file HelloWorld.API/Dockerfile --tag azureimagerepo.azurecr.io/helloworldapi:$(date +%s)
+
+    - name: Publish Image to ACR
+      run: docker push azureimagerepo.azurecr.io/helloworldapi:$(date +%s)
