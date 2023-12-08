@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_TAG: azureimagerepo.azurecr.io/helloworldapi:$(date +%s)
+  IMAGE_TAG: azureimagerepo.azurecr.io/helloworldapi:1
 
 jobs:
 
