@@ -6,19 +6,31 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  IMAGE_TAG: azureimagerepo.azurecr.io/helloworldapi:1
-
 jobs:
 
-  build:
+  build-and-publish-image:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file HelloWorld.API/Dockerfile --tag ${{ env.IMAGE_TAG }}
+    
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v3
 
+    - name: 'Azure Login'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Build Docker image
+    - run: docker build . --file HelloWorld.API/Dockerfile --tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/helloworldapi:${{ github.sha }}
+
+    - name: Login to ACR
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    
     - name: Publish Image to ACR
-      run: docker push ${{ env.IMAGE_TAG }}
+      run: docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/helloworldapi:${{ github.sha }}
