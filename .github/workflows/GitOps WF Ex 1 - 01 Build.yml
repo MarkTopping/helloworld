@@ -1,0 +1,37 @@
+name: Ex1 - 01 Build Test Scan
+
+run-name: Running Build Test Scan Job
+
+on:
+  push:
+    branches:
+      main
+      'feat/**'
+      'feature/**'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: echo "running docker build --target=build"
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: echo "running docker build --target=test"
+
+  code-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Vericode
+        run: echo "downloading Vericode"
+
+      - name: Scan
+        run: echo "scanning code"
+        
