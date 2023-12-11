@@ -1,4 +1,4 @@
-name: Ex1 - Build on Push
+name: Ex1 - 01 Build on Push
 
 on:
   [push]
