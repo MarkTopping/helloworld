@@ -12,7 +12,14 @@ on:
   workflow_dispatch:
 
 jobs:
-
+  print-context:
+    runs-on: ubuntu-latest
+    steps:
+      - env: 
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
+      
   docker-build:
     runs-on: ubuntu-latest
 
