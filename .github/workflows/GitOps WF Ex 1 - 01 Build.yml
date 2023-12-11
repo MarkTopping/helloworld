@@ -9,6 +9,8 @@ on:
       - 'feat/**'
       - 'feature/**'
 
+  workflow_dispatch:
+
 jobs:
 
   build:
