@@ -5,9 +5,9 @@ run-name: Running Build Test Scan Job
 on:
   push:
     branches:
-      main
-      'feat/**'
-      'feature/**'
+      - main
+      - 'feat/**'
+      - 'feature/**'
 
 jobs:
 
