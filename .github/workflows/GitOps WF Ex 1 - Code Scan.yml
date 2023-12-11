@@ -1,15 +1,8 @@
 name: Ex1 - 03 Code Scan
 
 on:
-  pull_request:
-    types:
-      - opened
-      
-  push:
-    branches:
-      - main
-      - 'release/**'
-      - 'releases/**'
+  workflow_run:
+    workflows: ["Ex1 - 02 Test"]
 
   workflow_dispatch:
 
