@@ -1,7 +1,13 @@
 name: Ex1 - 01 Build on Push
 
 on:
-  [push]
+  push:
+    branches:
+      main
+      feat/**
+      feature/**
+
+  workflow_dispatch:
 
 jobs:
 
