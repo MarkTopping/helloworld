@@ -1,6 +1,6 @@
 name: Ex1 - 01 Build on Push
 
-run-name: Running build job on {{ github.branch }}
+run-name: Running build job
 
 on:
   push:
