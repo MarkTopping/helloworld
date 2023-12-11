@@ -1,0 +1,42 @@
+name: Ex1 - 02 Publish Image
+
+run-name: Publishing Docker Image
+
+on:
+  workflow_dispatch
+
+jobs:
+
+  build-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: echo "running docker build --target=final"
+
+  scan-image:
+    runs-on: ubuntu-latest
+    needs: [build-image]
+    
+    steps:
+      - name: download Trivy
+        run: echo "downloading Trivy"
+    
+      - name: Aqua Image Scan
+        run: echo "scanning image"
+
+  publish-image:
+    runs-on: ubuntu-latest
+    needs: [scan-image]
+
+    steps:
+      - name: Login to ACR
+        run: echo "logging into ACR"
+
+      - name: Publish Image
+        run: echo "publishing image with tag ???"
+
+      - name: Logout of ACR
+        run: echo "logging out of ACR"
+      
+  
