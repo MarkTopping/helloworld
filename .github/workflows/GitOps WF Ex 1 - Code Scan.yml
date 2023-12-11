@@ -1,0 +1,24 @@
+name: Ex1 - 03 Code Scan
+
+on:
+  pull_request:
+    types:
+      - opened
+      
+  push:
+    branches:
+      - main
+      - 'release/**'
+      - 'releases/**'
+
+  workflow_dispatch:
+
+jobs:
+
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Build
+        run: echo "running Vericode code scan"
