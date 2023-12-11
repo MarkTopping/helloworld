@@ -1,0 +1,14 @@
+name: Ex1 - Build on Push
+
+on:
+  [push]
+
+jobs:
+
+  docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Build
+        run: echo "running docker build --target=build"
