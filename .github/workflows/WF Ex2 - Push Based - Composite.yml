@@ -1,6 +1,6 @@
 name: Ex2 - 01 Full Pipeline
 
-run-name:  "#${{ github.run_number }}. Build and Deploy on ${{ github.ref_type }} '${{ github.ref_name }}'. Actor: ${{ github.triggering_actor }}"
+run-name:  "#${{ github.run_number }}. Build and Deploy on ${{ github.ref_type }} '${{ github.ref_name }}'. Triggered by: ${{ github.triggering_actor }}"
 
 on:
   # Allow for manual execution
@@ -8,6 +8,7 @@ on:
   # Auto trigger when pushes to selected branch naming conventions occir
   push: 
     branches: [main, feat/**, feature/**, release/**]
+    paths-ignore: ['*.md']
   # Auto trigger when a release is created
   release:
     types: [published]
@@ -24,10 +25,18 @@ jobs:
       - name: Test
         run: echo "running docker build --target=test"
 
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Lint Tool
+        run: echo "Setting up Lint tool"
+      - name: Lint Code
+        run: echo "Linting code"
+
   code-scan:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout code
         uses: actions/checkout@v4
       - name: Download Vericode
         run: echo "downloading Vericode"
