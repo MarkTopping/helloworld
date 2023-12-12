@@ -3,12 +3,19 @@ name: Ex1 - 01 Build Test Scan
 run-name: Running Build Test Scan Job
 
 on:
+  # Trigger when a push is enacted to certain branches
   push:
     branches:
       - main
       - 'feat/**'
       - 'feature/**'
 
+  # Trigger when a release is created
+  release:
+    types: 
+      - published
+
+  # Allow a user to manually trigger where the auto-trigger conditions do not apply
   workflow_dispatch:
 
 jobs:
