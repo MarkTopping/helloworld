@@ -1,6 +1,6 @@
 name: Ex2 - 01 Full Pipeline
 
-run-name: Build and Deploy on ${{ github.ref }}
+run-name:  "${{ github.run_number }}. Build and Deploy on ${{ github.ref_type }} '${{ github.ref_name }}'. Sha: {{ github.sha }}"
 
 on:
   # Allow for manual execution
