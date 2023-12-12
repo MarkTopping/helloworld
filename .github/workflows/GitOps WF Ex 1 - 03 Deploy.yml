@@ -11,8 +11,6 @@ on:
       - Ex1 - 02 Publish Image
     types: 
       - completed
-    branches:
-      - main
 
 jobs:
           
