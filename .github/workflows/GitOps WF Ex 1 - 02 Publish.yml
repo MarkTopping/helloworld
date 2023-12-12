@@ -3,7 +3,14 @@ name: Ex1 - 02 Publish Image
 run-name: Publishing Docker Image
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Ex1 - 01 Build Test Scan
+    types: 
+      - completed
+    branches:
+      - main
 
 jobs:
 
@@ -27,7 +34,7 @@ jobs:
 
   publish-image:
     runs-on: ubuntu-latest
-    needs: [scan-image]
+    needs: [build-image, scan-image]
 
     steps:
       - name: Login to ACR
