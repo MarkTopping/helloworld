@@ -1,6 +1,6 @@
 name: Ex2 - 01 Full Pipeline
 
-run-name:  "#${{ github.run_number }}. Build and Deploy on ${{ github.ref_type }} '${{ github.ref_name }}'. Sha: ${{ github.sha }}. Actor: ${{ github.triggering_actor }}"
+run-name:  "#${{ github.run_number }}. Build and Deploy on ${{ github.ref_type }} '${{ github.ref_name }}'. Actor: ${{ github.triggering_actor }}"
 
 on:
   # Allow for manual execution
