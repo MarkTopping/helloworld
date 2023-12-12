@@ -4,6 +4,10 @@ run-name: Publishing Docker Image
 
 on:
   workflow_dispatch:
+
+  # Note & Limitation
+  # When using workflow_run, while you can filter based on branches, you cannot filter based upon tags
+  
   workflow_run:
     workflows:
       - Ex1 - 01 Build Test Scan
