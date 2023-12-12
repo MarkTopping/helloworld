@@ -13,29 +13,40 @@ on:
 
 jobs:
 
+# This workflow splits build, test, and code-scan into seperate jobs. 
+# Pros:
+#  - Each stage is visually represented when you look at workflow executions
+#  - Each job can be individually re-run?
+# Cons:
+#  - Each job runs on it's own runner and therefore does not naturally share state or cache with the next
+#    As such, logic is needed optimise the performance which wouldn't be required in a single job
+#    The cache would be the docker image layers - is this possible?
+
   build:
     runs-on: ubuntu-latest
-
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
       - name: Build
         run: echo "running docker build --target=build"
 
   test:
     runs-on: ubuntu-latest
     needs: build
-
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
       - name: Build
         run: echo "running docker build --target=test"
 
   code-scan:
     runs-on: ubuntu-latest
     needs: test
-
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
       - name: Download Vericode
         run: echo "downloading Vericode"
-
       - name: Scan
         run: echo "scanning code"
         
