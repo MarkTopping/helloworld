@@ -3,7 +3,9 @@ namespace HelloWorld.API
     public class Program
     {
         public static void Main(string[] args)
-        {            
+        {    
+            # comment
+                
             Console.WriteLine($"Starting Web App. Environment: {Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}");
 
             var builder = WebApplication.CreateBuilder(args);
