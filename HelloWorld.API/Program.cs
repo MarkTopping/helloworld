@@ -4,7 +4,7 @@ namespace HelloWorld.API
     {
         public static void Main(string[] args)
         {    
-            # comment
+            // lol comment
                 
             Console.WriteLine($"Starting Web App. Environment: {Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}");
 
