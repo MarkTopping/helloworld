@@ -1,6 +1,6 @@
 name: Ex1 - 01 Build Test Scan
 
-run-name: Running Build Test Scan Job
+run-name: Running Build Test Scan Job (adam test)
 
 on:
   # Trigger when a push is enacted to certain branches
