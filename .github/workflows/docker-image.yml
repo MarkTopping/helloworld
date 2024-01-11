@@ -2,9 +2,11 @@ name: Build and Deploy v1
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "release/*", "release/**/" ]
   pull_request:
     branches: [ "main" ]
+  release: [completed]
+  workflow_dispatch:
 
 jobs:
 
