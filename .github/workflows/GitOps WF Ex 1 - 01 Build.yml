@@ -30,30 +30,19 @@ jobs:
 #    The cache would be the docker image layers - is this possible?
 
   build:
-    runs-on: test-runner-set
+    runs-on: build-runners
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: Build
         run: echo "running docker build --target=build"
 
-  test:
-    runs-on: test-runner-set
+  deploy:
+    runs-on: deploy-runners
     needs: build
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: Build
-        run: echo "running docker build --target=test"
-
-  code-scan:
-    runs-on: test-runner-set
-    needs: build
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name: Download Vericode
-        run: echo "downloading Vericode"
-      - name: Scan
-        run: echo "scanning code"
+      - name: Deploy
+        run: echo "Enacting Deployment..."
         
