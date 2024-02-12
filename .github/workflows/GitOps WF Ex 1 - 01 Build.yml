@@ -30,7 +30,7 @@ jobs:
 #    The cache would be the docker image layers - is this possible?
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: test-runner-set
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -38,7 +38,7 @@ jobs:
         run: echo "running docker build --target=build"
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: test-runner-set
     needs: build
     steps:
       - name: checkout
@@ -47,7 +47,7 @@ jobs:
         run: echo "running docker build --target=test"
 
   code-scan:
-    runs-on: ubuntu-latest
+    runs-on: test-runner-set
     needs: build
     steps:
       - name: checkout
