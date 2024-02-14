@@ -45,4 +45,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Deploy
         run: echo "Enacting Deployment..."
+
+  sleep:
+    runs-on: deploy-runners
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: sleep-for-a-while
+        run: sleep 1200
         
