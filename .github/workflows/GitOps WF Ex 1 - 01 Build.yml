@@ -48,6 +48,9 @@ jobs:
 
   sleep:
     runs-on: deploy-runners
+    env: 
+      MARK1: Hello
+      MARK2: ${{ $GITHUB_TOKEN }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
