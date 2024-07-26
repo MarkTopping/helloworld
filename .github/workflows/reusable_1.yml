@@ -7,7 +7,6 @@ on:
       caller-name:
         required: true
         type: string
-    #secrets:
       caller-client-id:
         required: true
         type: string
