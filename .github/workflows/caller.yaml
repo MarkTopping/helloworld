@@ -8,6 +8,7 @@ jobs:
     uses: MarkTopping/helloworld/.github/workflows/reusable_1.yml@main
     with: 
       caller-name: Mark
+    secrets:
       caller-client-id: ABC123
 
   job2:
