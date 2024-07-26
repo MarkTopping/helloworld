@@ -28,6 +28,6 @@ jobs:
           keyvault: "github-oidc-test-kv"
           secrets: 'example-secret'
         id: kvSecretStep
-
-      - run: |
-          echo Secret obtaied (obfuscated): ${{ steps.kvSecretStep.outputs.example-secret }}
+        
+      - name: Use Secret
+        run: echo "Secret obtaied (obfuscated): ${{ steps.kvSecretStep.outputs.example-secret }}"
