@@ -22,7 +22,7 @@ jobs:
       reusable-job-env-var: "Secret value inside a job"
     steps:
       - run: echo ${{ inputs.caller-name }}
-      - run: echo ${{  caller-client-id }}
+      - run: echo ${{ inputs.caller-client-id }}
       - run: echo "printing vars. 1 > $reusable_top_level_env_var and 2 > $reusable-job-env-var"
 
   Auth-With-Azure:
