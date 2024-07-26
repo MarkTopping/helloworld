@@ -3,6 +3,10 @@ name: caller
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   job1: 
     uses: MarkTopping/helloworld/.github/workflows/reusable_1.yml@main
