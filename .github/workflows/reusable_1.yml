@@ -7,9 +7,10 @@ on:
       caller-name:
         required: true
         type: string
-    secrets:
+    #secrets:
       caller-client-id:
         required: true
+        type: string
     outputs:
       secret-value:
         description: "test output"
