@@ -10,4 +10,5 @@ jobs:
   job2:
     runs-on: ubunto-latest
     needs: job1
-    steps: echo ${{ needs job1.outputs.output1 }}
+    steps: 
+      - run: echo ${{ needs job1.outputs.output1 }}
