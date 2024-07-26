@@ -1,0 +1,13 @@
+name: caller
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1: 
+    uses: MarkTopping/helloworld/.github/workflows/resuable_1.yml@main
+
+  job2:
+    runs-on: ubunto-latest
+    needs: job1
+    steps: echo ${{ needs job1.outputs.output1 }}
