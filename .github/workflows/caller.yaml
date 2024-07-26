@@ -8,7 +8,7 @@ jobs:
     uses: MarkTopping/helloworld/.github/workflows/reusable_1.yml@main
 
   job2:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     needs: job1
     steps: 
       - run: echo ${{ needs job1.outputs.secret-value }}
