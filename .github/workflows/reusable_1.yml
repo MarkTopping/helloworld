@@ -1,0 +1,52 @@
+name: reusable_1
+env:
+  reusable_top_level_env_var: "I might be a secret"
+on:
+  workflow_call: 
+    inputs:
+      caller-name:
+        required: true
+        type: string
+    secrets:
+      caller-client-id:
+        required: true
+    outputs:
+      secret-value:
+        description: "test output"
+
+jobs: 
+  Print-Env-Vars:
+    runs-on: ubuntu-latest
+    env:
+      reusable-job-env-var: "Secret value inside a job"
+    steps:
+      - run: echo ${{ inputs.caller-name }}
+      - run: echo ${{  caller-client-id }}
+      - run: echo "printing vars. 1 > $reusable_top_level_env_var and 2 > $reusable-job-env-var"
+
+  Auth-With-Azure:
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step3.outputs.secret-value }}
+    steps:
+      - name: Auth
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+
+      - name: 'Run Azure CLI command'
+        run: |
+          az account show
+
+      - name: Get Secret
+        uses: Azure/get-keyvault-secrets@v1
+        with:
+          keyvault: "github-oidc-test-kv"
+          secrets: 'example-secret'
+        id: kvSecretStep
+        
+      - name: Output Secret
+        run: echo "output1=$steps.kvSecretStep.outputs.example-secret" >> $GITHUB_OUTPUT
+        
