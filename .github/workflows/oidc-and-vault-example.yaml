@@ -30,4 +30,4 @@ jobs:
         id: kvSecretStep
         
       - name: Use Secret
-        run: echo "Secret obtaied (obfuscated): ${{ steps.kvSecretStep.outputs.example-secret }}"
+        run: echo "Secret obtaied (obfuscated):" ${{ steps.kvSecretStep.outputs.example-secret }}
