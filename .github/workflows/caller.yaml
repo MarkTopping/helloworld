@@ -9,7 +9,7 @@ jobs:
     with: 
       caller-name: Mark
     secrets:
-      caller-client-id: ABC123
+      caller-client-id: ${{ secrets.AZURE_CLIENT_ID }}
 
   job2:
     runs-on: ubuntu-latest
