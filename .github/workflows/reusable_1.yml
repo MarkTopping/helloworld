@@ -14,11 +14,11 @@ jobs:
   Print-Env-Vars:
     runs-on: ubuntu-latest
     env:
-      reusable-job-env-var: "Secret value inside a job"
+      reusable_job_env_var: "Secret value inside a job"
     steps:
       - run: echo ${{ inputs.caller-name }}
       #- run: echo ${{ inputs.caller-client-id }}
-      - run: echo "printing vars. 1 > $reusable_top_level_env_var and 2 > $reusable-job-env-var"
+      - run: echo "printing vars. 1 > $reusable_top_level_env_var and 2 > $reusable_job_env_var"
 
   Auth-With-Azure:
     runs-on: ubuntu-latest
