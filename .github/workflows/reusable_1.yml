@@ -2,7 +2,16 @@ name: reusable_1
 env:
   reusable_top_level_env_var: "I might be a secret"
 on:
-  workflow_call: 
+  workflow_call:
+    secrets:
+      AZURE_CLIENT_ID:
+        required: true
+      AZURE_TENANT_ID:
+        required: true
+      AZURE_SUBSCRIPTION_ID:
+        required: true
+        
+      
 #    inputs:
 #      caller-name:
 #        type: string
