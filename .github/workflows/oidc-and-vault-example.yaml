@@ -27,4 +27,7 @@ jobs:
         with:
           keyvault: "github-oidc-test-kv"
           secrets: 'example-secret'
-        id: myGetSecretAction
+        id: kvSecretStep
+
+      - run: |
+          echo Secret obtaied: ${${{ steps.kvSecretStep.outputs.example-secret }}:0:10} < partial;
