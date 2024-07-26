@@ -30,4 +30,4 @@ jobs:
         id: kvSecretStep
 
       - run: |
-          echo Secret obtaied: ${${{ steps.kvSecretStep.outputs.example-secret }}:0:10} < partial;
+          echo Secret obtaied (obfuscated): ${{ steps.kvSecretStep.outputs.example-secret }}
