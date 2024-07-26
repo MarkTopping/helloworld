@@ -3,12 +3,12 @@ env:
   reusable_top_level_env_var: "I might be a secret"
 on:
   workflow_call: 
-    inputs:
-      caller-name:
-        type: string
-    outputs:
-      secret-value:
-        description: "test output"
+#    inputs:
+#      caller-name:
+#        type: string
+#    outputs:
+#      secret-value:
+#        description: "test output"
 
 jobs: 
   Print-Env-Vars:
@@ -22,8 +22,8 @@ jobs:
 
   Auth-With-Azure:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step3.outputs.secret-value }}
+    #outputs:
+    #  output1: ${{ steps.step3.outputs.secret-value }}
     steps:
       - name: Auth
         uses: azure/login@v1
@@ -43,6 +43,6 @@ jobs:
           secrets: 'example-secret'
         id: kvSecretStep
         
-      - name: Output Secret
-        run: echo "output1=$steps.kvSecretStep.outputs.example-secret" >> $GITHUB_OUTPUT
+      #- name: Output Secret
+      #  run: echo "output1=$steps.kvSecretStep.outputs.example-secret" >> $GITHUB_OUTPUT
         
