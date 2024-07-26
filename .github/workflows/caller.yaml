@@ -7,8 +7,8 @@ jobs:
   job1: 
     uses: MarkTopping/helloworld/.github/workflows/reusable_1.yml@main
     with: 
-      caller-name: Mark
-      caller-client-id: ffs
+      caller-name: "Mark"
+      caller-client-id: "ffs"
 
   job2:
     runs-on: ubuntu-latest
